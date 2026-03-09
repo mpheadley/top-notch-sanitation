@@ -1,0 +1,7 @@
+# robots.txt — topnotchrockmart.com
+# Allow all crawlers full access
+
+User-agent: *
+Allow: /
+
+Sitemap: https://topnotchrockmart.com/sitemap.xml

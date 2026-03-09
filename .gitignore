@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+
+# Raw / source images — already converted to WebP, don't commit originals
+images/raw/
+images/originals/
+images/source/
+images/*.png
+*.HEIC
+*.heic
+
+# Design/research files — not needed in production
+draft-layout.html
+color-swatches.html
+DESIGN_BRIEF.md
+STORYBRAND_PROMPT.md
+STORYBRAND_REFERENCE.md
+storybrand-research.md
+industry-research.md
+industry-research-prompt.md
+marketing-notes.md
+website-copy.md
+
+# Editor and IDE files
+.vscode/
+*.swp
+*~
+
+# Thumbnail cache
+Thumbs.db
