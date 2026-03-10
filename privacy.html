@@ -33,7 +33,7 @@
   <!-- daisyUI — component classes (btn, card, hero, navbar, etc.) -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 
-  <link rel="stylesheet" href="style.css?v=1">
+  <link rel="stylesheet" href="style.css?v=2">
   <link rel="icon" href="images/favicon.ico">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
@@ -52,11 +52,13 @@
 <body>
 
 <!-- PARTIAL:nav:START -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
   <!-- ─── Navigation ─── -->
   <header class="site-header" id="site-header">
     <div class="nav-inner container">
       <a class="nav-logo" href="index.html">
-        <img src="images/logo-nav.webp" alt="Top Notch Sanitation" width="40" height="40" loading="eager">
+        <img src="images/logo-nav.webp" alt="Top Notch Sanitation" width="56" height="56" loading="eager">
         <span>Top Notch</span>
       </a>
       <nav class="desktop-nav">
@@ -68,7 +70,7 @@
         <a href="tel:+16786854554" class="btn btn-primary btn-sm">(678) 685-4554</a>
       </nav>
       <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
           <line x1="3" y1="6" x2="21" y2="6"/>
           <line x1="3" y1="12" x2="21" y2="12"/>
           <line x1="3" y1="18" x2="21" y2="18"/>
@@ -80,7 +82,7 @@
   <!-- ─── Mobile Menu ─── -->
   <div class="mobile-overlay" id="mobile-overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
     <button type="button" class="mobile-close-btn" id="mobile-close-btn" aria-label="Close menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
         <line x1="18" y1="6" x2="6" y2="18"/>
         <line x1="6" y1="6" x2="18" y2="18"/>
       </svg>
@@ -96,6 +98,7 @@
 <!-- PARTIAL:nav:END -->
 
   <!-- ─── Privacy Policy Content ─── -->
+  <main id="main">
   <section class="section-pad" style="padding-top: 160px; background: var(--dark);">
     <div class="container" style="max-width: 800px;">
 
@@ -162,8 +165,10 @@
       </div>
     </div>
   </section>
+  </main>
 
   <footer class="site-footer">
+    <img src="images/logo-footer.webp" alt="Top Notch Sanitation" class="footer-logo" width="112" height="112" loading="lazy">
     <p class="footer-copy">&copy; <span id="year"></span> Top Notch Sanitation LLC. All rights reserved.</p>
     <div class="footer-contact">
       <a href="mailto:topnotchrockmart@gmail.com" class="footer-contact-link">topnotchrockmart@gmail.com</a>
@@ -186,6 +191,6 @@
   </div>
 <!-- PARTIAL:cookie-banner:END -->
 
-  <script src="script.js?v=1"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>
