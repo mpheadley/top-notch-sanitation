@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Top Notch Sanitation LLC — Rockmart, Georgia</title>
-  <meta name="description" content="Get in touch with Top Notch Sanitation LLC. Call, email, or fill out our contact form. Serving Rockmart, Aragon, and Polk County, GA.">
+  <meta name="description" content="Get in touch with Top Notch Sanitation LLC. Call, email, or fill out our contact form. Serving Rockmart, Aragon, Polk County, and Paulding County, GA.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Headley Web & SEO | headleyweb.com">
   <link rel="author" href="https://headleyweb.com">
@@ -15,7 +15,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Top Notch Sanitation LLC">
   <meta property="og:title" content="Contact | Top Notch Sanitation LLC">
-  <meta property="og:description" content="Get in touch with Top Notch Sanitation LLC. Serving Rockmart, Aragon, and Polk County, GA.">
+  <meta property="og:description" content="Get in touch with Top Notch Sanitation LLC. Serving Rockmart, Aragon, Polk County, and Paulding County, GA.">
   <meta property="og:image" content="https://mpheadley.github.io/top-notch-sanitation/images/og-image.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -25,7 +25,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact | Top Notch Sanitation LLC">
-  <meta name="twitter:description" content="Get in touch with Top Notch Sanitation LLC. Serving Rockmart, Aragon, and Polk County, GA.">
+  <meta name="twitter:description" content="Get in touch with Top Notch Sanitation LLC. Serving Rockmart, Aragon, Polk County, and Paulding County, GA.">
   <meta name="twitter:image" content="https://mpheadley.github.io/top-notch-sanitation/images/og-image.webp">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -152,14 +152,14 @@
             </ul>
 
             <p class="contact-service-note">
-              <strong>Serving:</strong> Rockmart, Aragon, and Polk County, GA
+              <strong>Serving:</strong> Polk and Paulding County, GA — including Rockmart, Aragon, and parts of Dallas
             </p>
           </div>
 
           <!-- Form Column -->
           <div class="contact-form-box animate-on-scroll" style="--stagger-delay: 0.15s">
             <h3>Send Us a Message</h3>
-            <form action="https://formspree.io/f/xplaceholdr" method="POST" class="form-light">
+            <form id="contact-form" class="form-light" novalidate>
               <div class="form-row">
                 <div class="form-group">
                   <label for="contact-name">Your Name</label>
@@ -226,5 +226,25 @@
 <!-- PARTIAL:cookie-banner:END -->
 
   <script src="script.js?v=2"></script>
+  <script>
+  (function(){
+    var f=document.getElementById('contact-form');
+    if(!f)return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var btn=f.querySelector('[type=submit]');
+      var orig=btn?btn.innerHTML:'';
+      if(btn){btn.disabled=true;btn.textContent='Sending…';}
+      var data={};new FormData(f).forEach(function(v,k){data[k]=v;});
+      fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+        .then(function(r){return r.json();})
+        .then(function(j){
+          if(j.ok){f.innerHTML='<p style="text-align:center;padding:32px;font-size:17px;font-weight:600;">✓ Message received — we\'ll be in touch soon.</p>';}
+          else{if(btn){btn.disabled=false;btn.innerHTML=orig;}alert('Something went wrong. Please try again.');}
+        })
+        .catch(function(){if(btn){btn.disabled=false;btn.innerHTML=orig;}alert('Network error. Please try again.');});
+    });
+  })();
+  </script>
 </body>
 </html>
