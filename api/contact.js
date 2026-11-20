@@ -1,10 +1,15 @@
+import { guardForm, sendBlocked } from './_form-guard.js'
+
 const RESEND_API_KEY = process.env.RESEND_API_KEY?.trim()
 const NOTIFY_EMAIL = 'topnotchrockmart@gmail.com'
 const SITE_NAME = 'Top Notch Sanitation'
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
-  const { name, email, phone, service, message } = req.body || {}
+  const body = req.body || {}
+  const guard = await guardForm(req, body, { key: 'contact', captcha: false })
+  if (!guard.ok) return sendBlocked(res, guard)
+  const { name, email, phone, service, message } = body
   if (!name || !email) return res.status(400).json({ error: 'Name and email are required' })
 
   if (RESEND_API_KEY) {
